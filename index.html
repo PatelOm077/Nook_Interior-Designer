@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nook · Spaces to live in</title>
+  <meta name="description" content="Nook is a small interior design studio in Bengaluru. We plan flats and small homes one corner at a time.">
+  <meta name="theme-color" content="#F6F4EF">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F6F4EF'/%3E%3Cpath d='M10 6v48h48' stroke='%233F5B3A' stroke-width='9' fill='none'/%3E%3Ccircle cx='40' cy='26' r='9' fill='%23C8D36A'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="media/house/f001.webp">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="mark" viewBox="0 0 64 64"><path d="M6 2v56h56" stroke="currentColor" stroke-width="9" fill="none"/><circle cx="40" cy="24" r="10" fill="#C8D36A"/></symbol>
+  </svg>
+
+  <!-- 1. Hero: the room itself -->
+  <header class="hero" id="top">
+    <nav class="nav" aria-label="Main">
+      <a class="nav-logo" href="#top" aria-label="Nook, back to top"><svg aria-hidden="true"><use href="#mark"/></svg><span>nook<i>.</i></span></a>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a href="#prices">Prices</a>
+        <a href="#visit">Visit</a>
+      </div>
+      <a class="button button-small" href="#visit">Book a visit</a>
+    </nav>
+
+    <div class="hero-media">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="media/hero-poster.jpg"
+             data-wide="media/hero.mp4" data-tall="media/hero-portrait.mp4" aria-hidden="true"></video>
+      <h1 class="visually-hidden">Nook, an interior design studio in Bengaluru. Spaces to live in.</h1>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2. Signature: the house comes apart as you scroll -->
+    <section class="house" id="house" aria-label="A Nook house, taken apart room by room">
+      <div class="house-pin">
+        <canvas class="house-canvas" role="img" aria-label="A small house with a moss-green sofa opens up: the roof lifts, the walls slide away and every room is revealed."></canvas>
+      </div>
+    </section>
+
+    <!-- 3. Intro -->
+    <section class="intro">
+      <p class="statement" data-reveal>Nook is four designers in Bengaluru. We make small homes calm to come back to, with fewer things, each one chosen.</p>
+      <div class="facts" data-reveal>
+        <p><strong>62</strong> homes finished</p>
+        <p><strong>380</strong> sq ft, our smallest flat</p>
+        <p><strong>Six</strong> projects at a time, never more</p>
+      </div>
+      <div class="intro-action" data-reveal>
+        <a class="button" href="#plan">Plan your nook</a>
+        <a class="text-link" href="#work">See our work</a>
+      </div>
+    </section>
+
+    <!-- 4. Showcase band -->
+    <section class="showcase" aria-labelledby="showcase-title">
+      <div class="showcase-head">
+        <h2 id="showcase-title" class="section-title" data-reveal>Small rooms, done properly</h2>
+        <p data-reveal>Three corners from a two-bedroom flat in Indiranagar. Each one has a single job and nothing it doesn't need.</p>
+      </div>
+      <div class="rooms">
+        <figure class="room room-wide" data-reveal>
+          <img src="media/stills/sofa.jpg" width="900" height="520" alt="A moss-green sofa with one chartreuse cushion against a warm white wall" loading="lazy">
+          <figcaption><strong>The sofa wall</strong> Linen in moss green, one bright cushion, nothing on the wall.</figcaption>
+        </figure>
+        <figure class="room" data-reveal>
+          <img src="media/stills/corner-plant.jpg" width="560" height="700" alt="An oak lounge chair, a blush vase on a round side table and a tall olive tree" loading="lazy">
+          <figcaption><strong>The reading corner</strong> An oak chair, a side table and a tree that gets the morning sun.</figcaption>
+        </figure>
+        <figure class="room" data-reveal>
+          <img src="media/stills/lamp.jpg" width="500" height="700" alt="A black arched floor lamp over a light oak chair" loading="lazy">
+          <figcaption><strong>The lamp</strong> One arched lamp, so the ceiling light stays off after seven.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 5. Work: full panels -->
+    <section class="work" id="work" aria-label="Selected homes">
+      <article class="plate">
+        <img src="media/photos/p625.jpg" width="1600" height="1000" alt="An oak dining table with white moulded chairs beside tall windows" loading="lazy">
+        <div class="plate-row"><span>2025</span><h3>The oak table flat</h3><span>Koramangala, 1,100 sq ft</span></div>
+      </article>
+      <article class="plate">
+        <img src="media/photos/p305.jpg" width="1200" height="1500" alt="A small white table with a glass vase of branches on a railed balcony" loading="lazy">
+        <div class="plate-row"><span>2025</span><h3>A balcony to sit on</h3><span>Jayanagar, 64 sq ft</span></div>
+      </article>
+      <article class="plate">
+        <img src="media/photos/p208.jpg" width="1600" height="1000" alt="A multi-pane window in a dark room looking onto green trees" loading="lazy">
+        <div class="plate-row"><span>2024</span><h3>The tree window study</h3><span>Malleshwaram, 140 sq ft</span></div>
+      </article>
+    </section>
+
+    <!-- 6. Process: drag row -->
+    <section class="process" id="process" aria-labelledby="process-title">
+      <div class="process-head">
+        <h2 id="process-title" class="section-title" data-reveal>How a nook gets made</h2>
+        <p data-reveal>Six steps, about eleven weeks for a two-bedroom flat.</p>
+      </div>
+      <div class="process-bar" aria-hidden="true"><span></span></div>
+      <ol class="process-grid">
+        <li data-reveal><img src="media/photos/p311.jpg" width="1200" height="1500" alt="A wooden chair by a curtained window at dusk" loading="lazy"><h3>First we visit</h3><p>Two hours in your home, with a tape and a notebook. We ask how mornings go.</p></li>
+        <li data-reveal><img src="media/photos/p42.jpg" width="1200" height="1500" alt="A coffee cup on a long wooden table in a bright room" loading="lazy"><h3>Then we listen</h3><p>Coffee at the studio. You bring photos of rooms you love, we bring none.</p></li>
+        <li data-reveal><img src="media/photos/../stills/house-closed.jpg" width="900" height="760" alt="A white model house with a grey tiled roof" loading="lazy"><h3>We draw it whole</h3><p>The house as one model, measured to the centimetre, every window placed.</p></li>
+        <li data-reveal><img src="media/photos/../stills/house-mid.jpg" width="900" height="675" alt="The model house opening up, roof lifting and walls sliding away" loading="lazy"><h3>We take it apart</h3><p>Room by room, until each corner has a reason: read, cook, rest, store.</p></li>
+        <li data-reveal><img src="media/photos/../stills/kitchen.jpg" width="760" height="620" alt="A finished oak kitchen with a ladder stair and a dining table" loading="lazy"><h3>We build it</h3><p>Our carpenters and painters, on site weekly. You get a photo every Friday.</p></li>
+        <li data-reveal><img src="media/photos/p305.jpg" width="1200" height="1500" alt="A balcony table with a vase of branches" loading="lazy"><h3>You move in</h3><p>We style the last shelf, water the plants and leave you the keys.</p></li>
+      </ol>
+    </section>
+
+    <!-- 7. Prices + the live thing -->
+    <section class="prices" id="prices" aria-labelledby="prices-title">
+      <div class="prices-side">
+        <h2 id="prices-title" class="section-title" data-reveal>What it costs</h2>
+        <img src="media/stills/corner-plant.jpg" width="560" height="700" alt="A reading corner with an oak chair and a tall plant" loading="lazy" data-reveal>
+      </div>
+      <div class="menu" data-reveal>
+        <div class="menu-group">
+          <h3>Design, in ₹</h3>
+          <div class="item"><p class="item-line"><span>One-room consult</span><span>18,000</span></p><p class="item-note">Two hours at home, a written plan and a shopping list.</p></div>
+          <div class="item"><p class="item-line"><span>Room design</span><span>65,000</span></p><p class="item-note">Full drawings, materials and furniture for one room.</p></div>
+          <div class="item"><p class="item-line"><span>Whole home design</span><span>2,40,000</span></p><p class="item-note">Up to three bedrooms, every room drawn and specified.</p></div>
+        </div>
+        <div class="menu-group">
+          <h3>Making it real, in ₹</h3>
+          <div class="item"><p class="item-line"><span>Site supervision</span><span>40,000 / month</span></p><p class="item-note">A designer on site every week until handover.</p></div>
+          <div class="item"><p class="item-line"><span>Furniture sourcing</span><span>8% of spend</span></p><p class="item-note">We order, check and place every piece.</p></div>
+          <div class="item"><p class="item-line"><span>Styling day</span><span>22,000</span></p><p class="item-note">Shelves, art, plants and the last cushion.</p></div>
+        </div>
+      </div>
+
+      <form class="planner" id="plan" aria-labelledby="plan-title" data-reveal>
+        <h2 id="plan-title">Plan your nook</h2>
+        <fieldset>
+          <legend>Which rooms?</legend>
+          <div class="chips">
+            <label><input type="checkbox" name="room" value="Living room" checked><span>Living room</span></label>
+            <label><input type="checkbox" name="room" value="Bedroom" checked><span>Bedroom</span></label>
+            <label><input type="checkbox" name="room" value="Kitchen"><span>Kitchen</span></label>
+            <label><input type="checkbox" name="room" value="Study"><span>Study</span></label>
+            <label><input type="checkbox" name="room" value="Kids' room"><span>Kids' room</span></label>
+            <label><input type="checkbox" name="room" value="Balcony"><span>Balcony</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="size">Home size <output id="size-out" for="size">900 sq ft</output></label>
+          <input type="range" id="size" name="size" min="300" max="2500" step="50" value="900">
+        </div>
+        <label class="toggle"><input type="checkbox" name="site" checked><span>We look after the build too</span></label>
+        <div class="planner-result" aria-live="polite">
+          <p><span class="result-value" id="fee">₹1,30,000</span><span class="result-label">design fee, from</span></p>
+          <p><span class="result-value" id="weeks">11 weeks</span><span class="result-label">until you move in</span></p>
+        </div>
+        <a class="button button-wide" id="plan-send" href="mailto:hello@nook.studio">Email this plan to us</a>
+        <p class="planner-note">An estimate to start the conversation. We confirm the real fee after the first visit.</p>
+      </form>
+    </section>
+
+    <!-- 8. Visit card on a photograph -->
+    <section class="visit" id="visit" aria-label="Visit the studio">
+      <div class="visit-photos" aria-hidden="true">
+        <img src="media/photos/p954.jpg" width="1600" height="1000" alt="" loading="lazy" class="is-on">
+        <img src="media/photos/p625.jpg" width="1600" height="1000" alt="" loading="lazy">
+      </div>
+      <div class="card" data-reveal>
+        <h2>Visit the studio</h2>
+        <address>Studio 3, 12th Cross<br>Indiranagar, Bengaluru 560038</address>
+        <dl class="hours">
+          <div><dt>Mon to Fri</dt><dd>10:00 to 18:00</dd></div>
+          <div><dt>Saturday</dt><dd>10:00 to 14:00</dd></div>
+          <div><dt>Sunday</dt><dd>Closed</dd></div>
+        </dl>
+        <p><a href="mailto:hello@nook.studio">hello@nook.studio</a></p>
+        <a class="button button-wide" href="mailto:hello@nook.studio?subject=Studio%20visit&body=Hello%20Nook%2C%20I%27d%20like%20to%20visit%20the%20studio%20on%20">Book a studio visit</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- 9. Footer: the address is the headline -->
+  <footer class="footer">
+    <div class="footer-top">
+      <p class="footer-mark"><svg aria-hidden="true"><use href="#mark"/></svg> nook.</p>
+      <p>Studio 3, 12th Cross, Indiranagar</p>
+      <p>Mon to Sat, by appointment</p>
+      <a href="#top" class="footer-up">Back to top</a>
+    </div>
+    <a class="footer-mail" href="mailto:hello@nook.studio">hello<wbr>@nook.studio</a>
+    <div class="footer-meta">
+      <span>Interior design for flats and small homes</span>
+      <span>Photos: Breather, Dominik Martin, Martin Wessely, Logan Adermatt, Luke Chesser and Todd Quackenbush on Unsplash. Renders made with Kling AI.</span>
+      <span>Bengaluru, 2026</span>
+    </div>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
