@@ -21,6 +21,7 @@ phone.addEventListener("change", pickHeroCut);
 const house = document.querySelector(".house");
 const canvas = document.querySelector(".house-canvas");
 const ctx = canvas.getContext("2d", { alpha: false });
+ctx.imageSmoothingQuality = "high";
 const FRAME_COUNT = 121;
 const FIELD = [226, 215, 201]; // --house
 const frames = new Array(FRAME_COUNT);
@@ -51,6 +52,7 @@ function sizeCanvas() {
   const dpr = Math.min(devicePixelRatio || 1, 2);
   canvas.width = Math.round(canvas.clientWidth * dpr);
   canvas.height = Math.round(canvas.clientHeight * dpr);
+  ctx.imageSmoothingQuality = "high";
   dirty = true;
 }
 
@@ -107,7 +109,9 @@ function updateTarget() {
   const p = Math.min(1, Math.max(0, -rect.top / travel));
   // Hold the closed house at the start and the open house at the end.
   const k = Math.min(1, Math.max(0, (p - 0.06) / 0.84));
-  target = k * (FRAME_COUNT - 1);
+  // Aim at a whole frame: the blend between frames only shows while moving, and
+  // the house always comes to rest on one sharp frame.
+  target = Math.round(k * (FRAME_COUNT - 1));
 }
 
 let last = performance.now();
