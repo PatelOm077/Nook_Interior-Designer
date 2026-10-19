@@ -74,29 +74,13 @@ function placement(img) {
   return { x: (cw - w) / 2, y: ch * 0.5 - h / 2, w, h, fade: h * 0.16 };
 }
 
-// After the last frame the scroll keeps going: the camera moves into the
-// open rooms (the kitchen and dining table), as one more step.
-const ZOOM_UNITS = 70;
-const FOCUS = { x: 0.49, y: 0.68 }; // the kitchen-dining room, as a share of the frame
-const easeInOut = (x) => x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
-
 function draw(pos) {
-  const last = FRAME_COUNT - 1;
-  const zoom = easeInOut(Math.min(1, Math.max(0, (pos - last) / ZOOM_UNITS)));
-  pos = Math.min(pos, last);
   const a = Math.floor(pos);
   const t = pos - a;
   const imgA = nearest(a);
   if (!imgA) return;
   const imgB = t > 0.01 && frames[a + 1] ? frames[a + 1] : null;
   const p = placement(imgA);
-  if (zoom > 0) {
-    const scale = 1 + zoom * (canvas.width / canvas.height > 0.9 ? 1.4 : 1.9);
-    const fx = p.x + FOCUS.x * p.w, fy = p.y + FOCUS.y * p.h;
-    const tx = fx + (canvas.width / 2 - fx) * zoom, ty = fy + (canvas.height * 0.52 - fy) * zoom;
-    p.x = tx - FOCUS.x * p.w * scale; p.y = ty - FOCUS.y * p.h * scale;
-    p.w *= scale; p.h *= scale; p.fade *= scale;
-  }
   ctx.globalAlpha = 1;
   ctx.fillStyle = `rgb(${FIELD})`;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -120,11 +104,9 @@ function updateTarget() {
   const rect = house.getBoundingClientRect();
   const travel = rect.height - innerHeight;
   const p = Math.min(1, Math.max(0, -rect.top / travel));
-  // Closed house held, then the house opens, a short pause, then the camera moves in.
-  const last = FRAME_COUNT - 1;
-  const clamp = (x) => Math.min(1, Math.max(0, x));
-  if (p < 0.64) target = clamp((p - 0.05) / 0.55) * last;
-  else target = last + clamp((p - 0.66) / 0.28) * ZOOM_UNITS;
+  // Hold the closed house at the start and the open house at the end.
+  const k = Math.min(1, Math.max(0, (p - 0.06) / 0.84));
+  target = k * (FRAME_COUNT - 1);
 }
 
 let last = performance.now();
