@@ -15,7 +15,7 @@ pickHeroCut();
 phone.addEventListener("change", pickHeroCut);
 
 /* ---------- The exploding house, drawn from scroll ----------
-   Every frame is decoded up front (ImageBitmap) so drawing never stalls, the
+   Every frame is downloaded and decoded ahead of time so drawing never stalls, the
    position eases toward the scroll target, and between two frames the next one
    is blended in, so the motion has no steps. */
 const house = document.querySelector(".house");
@@ -24,27 +24,28 @@ const ctx = canvas.getContext("2d", { alpha: false });
 const FRAME_COUNT = 121;
 const FIELD = [226, 215, 201]; // --house
 const frames = new Array(FRAME_COUNT);
-const frameSrc = (i) => `media/house/f${String(i + 1).padStart(3, "0")}.webp`;
+// Heavy media is served from jsDelivr (mirrors the GitHub repo) because it is far faster than Netlify here.
+const MEDIA = document.documentElement.dataset.media;
+const frameSrc = (i) => `${MEDIA}house/f${String(i + 1).padStart(3, "0")}.webp`;
 let current = 0;
 let target = 0;
 let dirty = true;
 
-async function loadFrame(i) {
-  const res = await fetch(frameSrc(i));
-  const blob = await res.blob();
-  frames[i] = "createImageBitmap" in window ? await createImageBitmap(blob) : await new Promise((ok) => {
-    const img = new Image();
-    img.onload = () => ok(img);
-    img.src = URL.createObjectURL(blob);
-  });
-  dirty = true;
+function loadFrame(i) {
+  const img = new Image();
+  img.crossOrigin = "anonymous";
+  img.src = frameSrc(i);
+  img.onload = () => {
+    frames[i] = img;
+    dirty = true;
+    img.decode?.().catch(() => {}); // decode ahead of time so drawing never stalls
+  };
 }
-loadFrame(0).then(async () => {
-  // Load the rest a few at a time, in order.
-  for (let i = 1; i < FRAME_COUNT; i += 6) {
-    await Promise.all(Array.from({ length: 6 }, (_, k) => i + k).filter((n) => n < FRAME_COUNT).map(loadFrame));
-  }
-});
+// The first frame loads at once; the rest are requested once the page itself
+// has loaded, so the hero video gets the bandwidth first.
+loadFrame(0);
+const loadRest = () => { for (let i = 1; i < FRAME_COUNT; i++) loadFrame(i); };
+document.readyState === "complete" ? loadRest() : addEventListener("load", loadRest, { once: true });
 
 function sizeCanvas() {
   const dpr = Math.min(devicePixelRatio || 1, 2);
